@@ -38,7 +38,7 @@ function Item(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" variant="contained" color="primary">
+        <Button size="small" color="primary" variant="contained">
           Learn More
         </Button>
       </CardActions>
