@@ -26,14 +26,14 @@ function Item(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/images/toaster.jpg"
+          image={"/images/" + props.item.image}
         />
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
-            {props.name}
+            {props.item.name}
           </Typography>
           <Typography component="p">
-            {props.desc}
+            {props.item.desc}
           </Typography>
         </CardContent>
       </CardActionArea>

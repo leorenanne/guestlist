@@ -6,6 +6,10 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {items: []};
+  }
 
   componentDidMount() {
     const config = {
@@ -18,15 +22,16 @@ class App extends Component {
     };
     firebase.initializeApp(config);
     const database = firebase.database();
-    database.ref('public').on('value', (snapshot) => {
-      console.log("Value changed", snapshot.val());
+    database.ref('publicItemsData').on('value', (snapshot) => {
+      console.log('publicItemsData changed', snapshot.val());
+      this.setState({items: snapshot.val()});
     });
   }
 
   render() {
     return (
       <div className="App">
-        <Items />
+        <Items items={this.state.items} />
       </div>
     );
   }
