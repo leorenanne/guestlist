@@ -11,7 +11,7 @@ class Items extends React.Component {
         {Object.keys(this.props.items).map(function(key){
           return (
             <Grid item xs={6} sm={3} key={key}>
-              <Item item={that.props.items[key]} />
+              <Item item={that.props.items[key]} itemId={key} />
             </Grid>
           );
         })}
