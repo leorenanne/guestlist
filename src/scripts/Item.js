@@ -39,7 +39,7 @@ function Item(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary" variant="contained">
-          Learn More
+          I bought this
         </Button>
       </CardActions>
     </Card>

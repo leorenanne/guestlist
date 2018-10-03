@@ -4,13 +4,14 @@ import Grid from '@material-ui/core/Grid';
 
 class Items extends React.Component {
   render() {  
+    const that = this;
     return (
       <div>
         <Grid container spacing={24}> 
-        {this.props.items.map(function(item){
+        {Object.keys(this.props.items).map(function(key){
           return (
-            <Grid item xs={6} sm={3} key={item.id}>
-              <Item item={item} />
+            <Grid item xs={6} sm={3} key={key}>
+              <Item item={that.props.items[key]} />
             </Grid>
           );
         })}
