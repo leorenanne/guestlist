@@ -11,9 +11,14 @@ import Typography from '@material-ui/core/Typography';
 import 'firebase/database';
 
 export default class FormDialog extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(){
+    super();
+
+    this.state = {
+      open: false,
+      value: ''
+    };
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -24,9 +29,14 @@ export default class FormDialog extends React.Component {
   };
 
   writeUserData(key) {
-    console.log("writing " + key)
+    console.log("writing " + key + " for " + this.state.value)
+    firebase.database().ref('buyerNames/' + key ).set(this.state.value);
     firebase.database().ref('publicItemsData/' + key + '/bought').set(true);
     this.handleClose();
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
   }
 
   render() {
@@ -60,6 +70,8 @@ export default class FormDialog extends React.Component {
               id="name"
               label="Your Full Name"
               type="email"
+              value={this.state.value}
+              onChange={this.handleChange.bind(this)}
               fullWidth
             />
           </DialogContent>
