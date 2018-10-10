@@ -16,7 +16,8 @@ export default class FormDialog extends React.Component {
 
     this.state = {
       open: false,
-      value: ''
+      value: '',
+      invalid: false
     };
   }
 
@@ -25,20 +26,28 @@ export default class FormDialog extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false,
+      value: '',
+      invalid: false
+    });
   };
 
   writeUserData(key) {
-    console.log("writing " + key + " for " + this.state.value)
-    firebase.database().ref('buyerNames/' + key ).set(this.state.value);
-    firebase.database().ref('publicItemsData/' + key + '/bought').set(true);
-    this.handleClose();
+    if (this.state.value.trim() === ""){
+      this.setState({invalid: true});
+
+    }else {
+      console.log("writing " + key + " for " + this.state.value)
+      firebase.database().ref('buyerNames/' + key ).set(this.state.value);
+      firebase.database().ref('publicItemsData/' + key + '/bought').set(true);
+       this.handleClose();
+    }
   }
 
   handleChange(event) {
     this.setState({value: event.target.value});
   }
-
   render() {
     return (
       <div>
@@ -65,12 +74,13 @@ export default class FormDialog extends React.Component {
               Please ONLY CLICK CONFIRM once you have bought this item. This action cannot be undone.
             </Typography>
             <TextField
+              error={this.state.invalid}
               autoFocus
               margin="dense"
               id="name"
               label="Your Full Name"
               type="email"
-              value={this.state.value}
+              value={this.setState.value}
               onChange={this.handleChange.bind(this)}
               fullWidth
             />
