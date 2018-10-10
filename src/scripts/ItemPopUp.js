@@ -80,7 +80,7 @@ export default class FormDialog extends React.Component {
               id="name"
               label="Your Full Name"
               type="email"
-              value={this.setState.value}
+              value={this.state.value}
               onChange={this.handleChange.bind(this)}
               fullWidth
             />
