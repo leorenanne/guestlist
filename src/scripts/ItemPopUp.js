@@ -79,7 +79,6 @@ export default class FormDialog extends React.Component {
               margin="dense"
               id="name"
               label="Your Full Name"
-              type="email"
               value={this.state.value}
               onChange={this.handleChange.bind(this)}
               fullWidth
