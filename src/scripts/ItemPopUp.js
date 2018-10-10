@@ -22,7 +22,7 @@ export default class FormDialog extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-  
+
   writeUserData(key) {
     console.log("writing " + key)
     firebase.database().ref('publicItemsData/' + key + '/bought').set(true);
@@ -32,7 +32,7 @@ export default class FormDialog extends React.Component {
   render() {
     return (
       <div>
-        <Button 
+        <Button
           onClick={this.handleClickOpen}
           color="primary"
           variant="contained"
@@ -49,11 +49,11 @@ export default class FormDialog extends React.Component {
           <DialogTitle id="form-dialog-title">Thank You! Please give us your details.</DialogTitle>
           <DialogContent>
             <DialogContentText >
-              Thank your for your purchase on our gift registry. 
-              <Typography color="error"> 
-                Please ONLY CLICK CONFIRM once you have bought this item. This action cannot be undone. 
-              </Typography>
+              Thank your for your purchase on our gift registry.
             </DialogContentText>
+            <Typography color="error">
+              Please ONLY CLICK CONFIRM once you have bought this item. This action cannot be undone.
+            </Typography>
             <TextField
               autoFocus
               margin="dense"
@@ -67,8 +67,8 @@ export default class FormDialog extends React.Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button 
-              onClick={() => this.writeUserData(this.props.itemId)} 
+            <Button
+              onClick={() => this.writeUserData(this.props.itemId)}
               color="secondary"
             >
               Confirm
