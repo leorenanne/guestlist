@@ -1,0 +1,26 @@
+{
+  "publicItemsData" : {
+    "1" : {
+      "bought" : true,
+      "desc" : "Cool fan",
+      "image" : "toaster.jpg",
+      "name" : "Fan"
+    },
+    "2" : {
+      "bought" : true,
+      "desc" : "Cool oven",
+      "image" : "toaster.jpg",
+      "name" : "Oven"
+    },
+    "3" : {
+      "desc" : "Cool toaster",
+      "image" : "toaster.jpg",
+      "name" : "Toaster"
+    },
+    "4" : {
+      "desc" : "Cool TV",
+      "image" : "toaster.jpg",
+      "name" : "TV"
+    }
+  }
+}
